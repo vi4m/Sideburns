@@ -38,7 +38,6 @@ extension Response {
         let template = try repository.template(named: templateName)
         let rendering = try template.render(box: Box(boxable: templateData))
         self.init(status: status, headers: headers, body: rendering)
-
 //        if let fileExtension = templateFile.fileExtension, mediaType = mediaType(forFileExtension: fileExtension) {
 //            self.contentType = mediaType
 //        }
