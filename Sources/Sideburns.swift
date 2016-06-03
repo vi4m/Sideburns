@@ -35,11 +35,8 @@ public enum SideburnsError: ErrorProtocol {
 
 extension Response {
     public init(status: Status = .ok, headers: Headers = [:], templateName: String, repository: TemplateRepository, templateData: TemplateData) throws {
-
         let template = try repository.template(named: templateName)
-        
         let rendering = try template.render(box: Box(boxable: templateData))
-
         self.init(status: status, headers: headers, body: rendering)
 
 //        if let fileExtension = templateFile.fileExtension, mediaType = mediaType(forFileExtension: fileExtension) {
